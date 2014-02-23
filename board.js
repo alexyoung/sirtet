@@ -173,5 +173,5 @@ Board.prototype.removeLine = function(i) {
 };
 
 Board.prototype.updateScore = function(i) {
-  // TODO: Score event
+  this.emit('score', this.score);
 };
