@@ -1,0 +1,17 @@
+{
+  "name": "sirtet",
+  "version": "0.0.0",
+  "description": "This isn't Tetris",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "keywords": [
+    "games"
+  ],
+  "author": "Alex R. Young",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.17.1"
+  }
+}
