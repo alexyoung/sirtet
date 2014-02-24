@@ -1,6 +1,6 @@
 {
   "name": "sirtet",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This isn't Tetris",
   "homepage": "http://github.com/alexyoung/sirtet",
   "main": "index.js",

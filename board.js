@@ -18,6 +18,8 @@ function Board(width, height) {
   this.score = 0;
 
   this.updateScore();
+
+  this.makeNextShape();
   this.makeShape();
 }
 
@@ -98,12 +100,23 @@ Board.prototype.copyCells = function(x, y, data, colour) {
 
 Board.prototype.makeShape = function(nameOverride) {
   if (this.running) {
-    var name = nameOverride || Shapes.random();
     this.removeFullLines();
-    this.currentShape = new Shape((this.width / 2) - 2, 1, name, this);
+
+    if (nameOverride) {
+      this.makeNextShape(nameOverride);
+    }
+
+    this.currentShape = this.nextShape;
     this.emit('shape', this.currentShape);
+    this.makeNextShape();
     this.checkGameOver();
   }
+};
+
+Board.prototype.makeNextShape = function(nameOverride) {
+  var name = nameOverride || Shapes.random();
+  this.nextShape = new Shape((this.width / 2) - 2, 1, name, this);
+  this.emit('nextshape', this.nextShape);
 };
 
 Board.prototype.checkGameOver = function() {
